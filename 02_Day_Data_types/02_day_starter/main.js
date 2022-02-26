@@ -60,3 +60,49 @@ let secondPartString3 = string3Trimed.substring(7);
 console.log(`${firstPartString3} + ${secondPartString3} = ${firstPartString3.concat(secondPartString3)}`);
 
 console.log(string3Trimed.repeat(2));
+
+
+//EX2
+
+console.log(`The quote` + `%c'There is no exercise better for the heart than reaching down and lifting people up.'` + `%cby John Holmes teaches us to ` + `%chelp` + `%cone another.`,
+"color : lightblue", "", "color : lightblue", "");
+
+console.log(`%c"Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead."`,
+"color : lightblue");
+
+let var1 = '10';
+let var1Copy = 10;
+let var2 = parseFloat('9.8');
+console.log(`${var1} == ${var1Copy} => ${var1 == var1Copy}`);
+console.log(`${var1} === ${var1Copy} => ${var1 === var1Copy}`);
+var1 = parseInt(var1);
+console.log("Parsing of string '10' in int");
+console.log(`${var1} == ${var1Copy} => ${var1 == var1Copy}`);
+console.log(`${var1} === ${var1Copy} => ${var1 === var1Copy}`);
+console.log(`${var1} == ${var2} => ${var1 == var2}`);
+var1 = parseFloat(var1);
+var2 = Math.round(var2);
+console.log("Parsing of 10 in float and rounding of 9.8");
+console.log(`${var1} == ${var2} => ${var1 == var2}`);
+
+console.log(` "on" is in "python" and "jargon" : ${"python".includes("on") === "jargon".includes("on")}`);
+
+let string4 = "I hope this course is not full of jargon."
+let searchString2 = "jargon";
+console.log(`"${searchString2}" is in "${string4}" : ${string4.includes(searchString2)}`);
+
+let random = Math.random();
+console.log(`Random number between 0 and 100 (included) : ${Math.floor(random*101)}`);
+console.log(`Random number between 0 and 255 (included) : ${Math.floor(random*256)}`);
+console.log(`Random number between 50 and 100 (included) : ${Math.floor(random*51) + 50}`);
+
+let string5 = "Javascript";
+let randomLetter = string5[Math.floor(random*(string5.length))];
+console.log(`Random letter of ${string5} : ${randomLetter}`);
+
+for(let i = 1; i <= 5; i++){
+  console.log(i, 1, i , Math.pow(i, 2) , Math.pow(i, 3));
+}
+
+let searchString3 = "because because because";
+console.log(string2.substr(string2.indexOf("because"), searchString3.length));

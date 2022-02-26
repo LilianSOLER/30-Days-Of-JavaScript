@@ -1,4 +1,10 @@
 // Declaring different variables of different data types
+console.log(typeof 'Asabeneh') // string
+console.log(typeof 5) // number
+console.log(typeof true) // boolean
+console.log(typeof null) // object type
+console.log(typeof undefined) // undefined
+
 
 let firstName = 'Asabeneh'    // first name of a person
 let lastName = 'Yetayeh'      // last name of a person
@@ -18,3 +24,8 @@ const PI = 3.14              // geometrical constant
 let name = 'Asabeneh',     //name of a person
   job = 'teacher',
   live = 'Finland'
+
+  /*
+  comments can make code readable,
+  easy to reuse and informative
+*/

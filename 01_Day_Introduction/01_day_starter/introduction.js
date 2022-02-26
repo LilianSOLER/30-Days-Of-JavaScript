@@ -1,1 +1,1 @@
-console.log('Welcome to 30DaysOfJavaScript')
+console.log('Welcome to 30 DaysOfJavaScript')//display Welcome to 30DaysOfJavaScript in the console of the browser

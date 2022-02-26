@@ -106,3 +106,43 @@ for(let i = 1; i <= 5; i++){
 
 let searchString3 = "because because because";
 console.log(string2.substr(string2.indexOf("because"), searchString3.length));
+
+//EX3
+let string6 = 'Love is the best thing in this world. Some found their love and some are still looking for their love.';
+let loveCounter = string6.match(/love/g).length;
+console.log(`There are ${loveCounter} "love" in ${string6}`);
+
+let becauseCounter = string2.match(/because/g).length;
+console.log(`There are ${becauseCounter} "because" in ${string2}`);
+
+const sentence = '%I $am@% a %tea@cher%, &and& I lo%#ve %te@a@ching%;. The@re $is no@th@ing;\
+&as& mo@re rewarding as educa@ting &and& @emp%o@weri@ng peo@ple. ;I found tea@ching m%o@re interesting tha@n any ot#her %jo@bs.\
+%Do@es thi%s mo@tiv#ate yo@u to be a tea@cher!? %Th#is 30#Days&OfJavaScript &is al@so $the $resu@lt of &love& of tea&ching';
+
+let shitLetter = "&#@$%&;";
+let cleanSentence = sentence;
+shitLetter = shitLetter.split("");
+shitLetter.forEach(letter => cleanSentence = cleanSentence.replaceAll(letter, ""));
+console.log(cleanSentence);
+
+let string7 = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+let array7 = string7.split(" ");
+let incomes = [];
+array7.forEach(word => {
+  if(Number.isInteger(parseInt(word))){
+    incomes.push(parseInt(word));
+  }
+});
+
+let totalIncome = 0;
+incomes.forEach((income, index) =>{
+  if(index % 2 == 0){
+    console.log(`Total income : ${totalIncome} + ${income} = ${totalIncome + income} `);
+    totalIncome += income;
+  }else{
+    console.log(`Total income : ${totalIncome} + 12 * ${income} = ${totalIncome + 12* income} `);
+    totalIncome += income * 12;
+  }
+})
+
+console.log(`Total income : ${totalIncome}`);

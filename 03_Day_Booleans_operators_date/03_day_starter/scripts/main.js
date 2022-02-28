@@ -1,6 +1,6 @@
 // this is your main.js script
 
-//EX1
+// EX1
 
 function typeOfArray(array){
   if(array == null){
@@ -30,7 +30,7 @@ function q1E1(){
   isMarried ? console.log("You are married") : console.log("You are not married");
 }
 
-//q1E1();
+// q1E1();
 
 console.log(`"10" == 10 is ${10 == "10"}`);
 console.log(`"10" === 10 is ${10 === "10"}`);
@@ -50,16 +50,38 @@ function q4E1(){
   });
 }
 
-//q4E1();
+// q4E1();
 
 function q5E1(){
-  let condArray = [(4 > 3), (4 >= 3), (4 < 3), (4 <= 3), (4 == 4), (4 === 4), (4 != 4), (4 !== 4), (4 != '4'), (4 == '4'), (4 ==='4'), ("python".length != "jargon".length)];
+  let condArray = [(4 > 3), (4 >= 3), (4 < 3), (4 <= 3), (4 == 4), (4 === 4), (4 != 4),
+  (4 !== 4), (4 != '4'), (4 == '4'), (4 ==='4'), ("python".length != "jargon".length)];
   condArray.forEach(cond => {
     console.log(cond);
   })
 }
+// q5E1();
 
-q5E1();
+function q6E1(){
+  let condArray = [(4 > 3 && 10 < 12), (4 > 3 && 10 > 12), (4 > 3 || 10 < 12),
+  (4 > 3 || 10 > 12), (!(4 > 3)), (!(4 < 3)), (!(false)), (!(4 > 3 && 10 < 12)),
+  (!(4 > 3 && 10 > 12)), (!(4 === '4')), (!("dragon".includes("on")) && !("pyton".includes("on")))];
+  condArray.forEach(cond => {
+    console.log(cond);
+  })
+}
+// q6E1();
 
+function q7E1(){
+  date = new Date();
+  console.log(`What is the year today? ${date.getFullYear()}`);
+  console.log(`What is the month today as a number? ${date.getMonth() + 1}`);
+  console.log(`What is the date today? ${date}`);
+  console.log(`What is the day today as a number? ${date.getDate()}`);
+  console.log(`What is the hours now? ${date.getHours()}`);
+  console.log(`What is the minutes now? ${date.getMinutes()}`);
+  console.log(`Find out the numbers of seconds elapsed from January 1, 1970 to now. ${date.getTime()}s`)
+}
+
+// q7E1();
 
 

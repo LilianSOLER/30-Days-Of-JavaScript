@@ -188,6 +188,51 @@ function q10E2(){
   (nameLength <= 7) ? console.log("Your name is short") : console.log("Your name is long");
 }
 
-q10E2();
+// q10E2();
 
+function q11E2(){
+  let firstName = prompt("Enter your firstname").length;
+  let lastname = prompt("Enter your lastname").length;
+  (firstName > lastname) ? console.log("Your firstname is longer") : console.log("Your lastname is longer");
+}
 
+// q11E2();
+
+function q12E2(){
+  let myAge = 20;
+  let yourAge = parseInt(prompt("Enter your age"));
+  (yourAge > myAge) ? console.log("You are older than me") : console.log("You are younger than me");
+}
+
+// q12E2();
+
+function q13E2(){
+  let yourBirthday = parseInt(prompt("Enter your birthday"));
+  let yourAge = new Date().getFullYear() - yourBirthday;
+  console.log(`You are ${yourAge} years old`);
+  (yourAge > 18) ? console.log("You are an adult") : console.log(`You are a child,you will be an adult in ${18 - yourAge} years`);
+}
+
+// q13E2();
+
+function q14E2(){
+  let years = parseInt(prompt("Enter number of years you live:"));
+  let secondsInYear = 60 * 60 * 24 * 365;
+  console.log(`You lived ${years * secondsInYear} years`);
+}
+
+// q14E2();
+
+function q15E2(){
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  console.log(`${year}-${month}-${day} ${hours}:${minutes}`);
+  console.log(`${month}-${day}-${year} ${hours}:${minutes}`);
+  console.log(`${day}-${month}-${year} ${hours}:${minutes}`);
+}
+
+q15E2();

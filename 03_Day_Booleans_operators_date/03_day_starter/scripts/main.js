@@ -50,7 +50,16 @@ function q4E1(){
   });
 }
 
-q4E1();
+//q4E1();
+
+function q5E1(){
+  let condArray = [(4 > 3), (4 >= 3), (4 < 3), (4 <= 3), (4 == 4), (4 === 4), (4 != 4), (4 !== 4), (4 != '4'), (4 == '4'), (4 ==='4'), ("python".length != "jargon".length)];
+  condArray.forEach(cond => {
+    console.log(cond);
+  })
+}
+
+q5E1();
 
 
 

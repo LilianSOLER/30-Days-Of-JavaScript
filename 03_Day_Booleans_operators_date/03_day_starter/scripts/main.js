@@ -32,10 +32,10 @@ function q1E1(){
 
 // q1E1();
 
-console.log(`"10" == 10 is ${10 == "10"}`);
-console.log(`"10" === 10 is ${10 === "10"}`);
-console.log(`parseInt("9.8") == 10 is ${parseInt("9.8") == 10}`);
-console.log(`parseInt("9.8") === 10 is ${parseInt("9.8") === 10}`);
+// console.log(`"10" == 10 is ${10 == "10"}`);
+// console.log(`"10" === 10 is ${10 === "10"}`);
+// console.log(`parseInt("9.8") == 10 is ${parseInt("9.8") == 10}`);
+// console.log(`parseInt("9.8") === 10 is ${parseInt("9.8") === 10}`);
 
 function q4E1(){
   let trueStatement = [true, 1, "random string"]; //might be true but random string isn't ??
@@ -83,5 +83,111 @@ function q7E1(){
 }
 
 // q7E1();
+
+// EX2
+
+function q1E2(){
+  let base = prompt('Base ?');
+  let height = prompt("Height ?");
+  let area = base * height / 2;
+  console.log(`Area : ${area}`);
+}
+
+// q1E2();
+
+function q2E2(){
+  let perimeter = 0;
+  while(confirm("Do you want to add a side ?")){
+    perimeter += parseInt(prompt("Enter his lenght"));
+  }
+  console.log(`Perimeter : ${perimeter}`);  
+}
+
+// q2E2();
+
+function q3E2(){
+  console.log("Calcul of area and perimeter of a triangle :");
+  let perimeter, area;
+  let length = parseInt(prompt("Enter his lenght"));
+  let width = parseInt(prompt("Enter his width"));
+  perimeter = 2 * (length + width);
+  area = length * width;
+  let endSentence = `${length} by ${width} has an area of ${area} and a perimeter of ${perimeter}`;
+  (length != width) ? console.log("Triangle" + endSentence) : console.log("Square " + endSentence);
+}
+
+// q3E2();
+
+function q4E2(){
+  console.log("Calcul of area and perimeter of a circle :");
+  const pi = 3.14;
+  let perimeter, area;
+  let radius = parseInt(prompt("Enter his radius"));
+  perimeter = Math.round(2 * pi * radius, 2);
+  area = pi * (radius ** 2);
+  console.log(`Circle Radius ${radius} => Area ${area} && Perimeter ${perimeter}`);
+}
+
+// q4E2();
+
+function poly(arrayCoeff, x){
+  let res = 0;
+  arrayCoeff.forEach((element, index) => {
+    res += x * (element ** index);
+  });
+  return res;
+}
+function y(x){
+  return poly([-2, 2], x);
+}
+
+function slope(points){
+  return (points["y"][1] - points["y"][0]) / (points["x"][1] - points["x"][0]);
+}
+
+function q5E2(){
+  let xs = [0, 3];
+  let ys = [];
+  xs.forEach(x => ys.push(y(x)));
+  let points = {"x": xs, "y": ys};
+  console.log(`Slope of 2*x - 2 is ${slope(points)}`);
+}
+
+// q5E2();
+
+function q6E2(){
+  let p1 = [2, 2];
+  let p2 = [6, 10];
+  let points = {"x": [p1[0], p2[0]],"y": [p1[1], p2[1]]};
+  console.log(`Slope is ${slope(points)}`);
+}
+
+// q6E2();
+
+function q8E2(){
+  let coeffPoly = [9, 6, 1];
+  for(i = 0; i < 10; i++){
+    let value = poly(coeffPoly, i);
+    console.log(`${i} : ${value}`);
+  } 
+}
+
+// q8E2();
+
+function q9E2(){
+  let hours = prompt("Hours of work");
+  let rate = prompt("Rate per hour");
+  let pay = hours * rate;
+  console.log(`You will receive ${pay}€`);
+}
+
+// q9E2();
+
+function q10E2(){
+  let nameLength = prompt("Enter your name").length;
+  (nameLength <= 7) ? console.log("Your name is short") : console.log("Your name is long");
+}
+
+q10E2();
 
 

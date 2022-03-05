@@ -235,4 +235,24 @@ function q15E2(){
   console.log(`${day}-${month}-${year} ${hours}:${minutes}`);
 }
 
-q15E2();
+// q15E2();
+
+function normalize(int){
+  int = int.toString();
+  if(int.length = 1){
+    return 0 + int;
+  }
+  return int;
+}
+
+function E3(){
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = normalize(date.getMonth());
+  let day = normalize(date.getDate());
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  console.log(`${year}-${month}-${day} ${hours}:${minutes}`);
+}
+
+E3();

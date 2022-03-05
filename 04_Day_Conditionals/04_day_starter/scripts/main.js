@@ -107,4 +107,44 @@ function exemplesLesson() {
 		: console.log("No need for a rain coat.");
 }
 
-exemplesLesson();
+// exemplesLesson();
+
+function q1E1() {
+	let age = prompt("Enter your age");
+	if (age >= 18) {
+		console.log("You are old enough to drive");
+	} else {
+		console.log(`You are left with ${18 - age} years to drive`);
+	}
+}
+
+// q1E1();
+
+function q2E1() {
+	let yourAge = prompt("Enter your age");
+	let myAge = new Date().getFullYear() - 2001;
+	if (yourAge > myAge) {
+		console.log(`You are ${yourAge - myAge} years older than me`);
+	} else if (yourAge == myAge) {
+		console.log("You have the same age as me");
+	} else {
+		console.log(`You are ${myAge - yourAge} years younger than me`);
+	}
+}
+
+// q2E1();
+
+function q3E1(){
+  let a = parseInt(prompt("Enter a number"));
+  let b = parseInt(prompt("Enter a number"));
+  a < b ? console.log(`${a} is less than ${b}`) : console.log(`${a} is greater or equal than ${b}`);
+}
+
+// q3E1();
+
+function q4E1(){
+  let a = parseInt(prompt("Enter a number"));
+  a % 2 == 0 ? console.log(`${a} is even`) : console.log(`${a} is odd`);
+}
+
+q4E1();

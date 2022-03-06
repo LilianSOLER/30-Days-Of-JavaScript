@@ -198,4 +198,84 @@ function exemples() {
   
 }
 
-exemples();
+// exemples();
+
+function q1_4E1(){
+  const emptyArray = Array();
+  console.log(emptyArray);
+  console.log(emptyArray.length);
+
+  const fiveValueArray = ["1", "2", "3", "4", "5"];
+  let fiveValueArrayLen = fiveValueArray.length;
+  console.log(fiveValueArray);
+  console.log(fiveValueArrayLen);
+  console.log(fiveValueArray[0]);
+  console.log(fiveValueArray[fiveValueArrayLen - 1]);
+  console.log(fiveValueArray[Math.round((fiveValueArrayLen - 1) / 2)])
+}
+
+// q1_4E1();
+
+function q5E1(){
+  const mixedDataTypes = ["string", 10, 3.14, true, undefined, false, 0, 10 == 11, Array(), Array(8).fill(1)];
+  console.log(mixedDataTypes);
+  console.log(mixedDataTypes.length);
+}
+
+// q5E1();
+
+function q6_23E1(){
+  let companies = ["Facebook", "Google", "Microsoft", "Apple", "IBM", "Oracle", "Amazon"];
+  const companiesLen = companies.length;
+  console.log(companies);
+  console.log(`There are ${companiesLen} compan${companiesLen == 1 ? "y" : "ies"}`)
+
+  companies.forEach((company, index) => {
+    companies[index] = company.toUpperCase();
+    console.log(companies[index]);
+  })
+
+  console.log(`${companies.join(', ')} are big companies`)
+
+  let companiesSearched = ["Ovh", "Google", "GOOGLE", "Sony"];
+  companiesSearched.forEach(companySearched => {
+    companies.includes(companySearched) ? console.log(`Company ${companySearched} found`) : console.log(`Company ${companySearched} not found`)
+  })
+
+  let companiesWithMoreThanOneO = Array();
+  let companiesWithLessThanOneO = Array();
+  companies.forEach((company) => {
+    companyArray  = company.split("O");
+    companyArray.length <= 2 ? companiesWithMoreThanOneO.push(company) : companiesWithLessThanOneO.push(company);
+  })
+  console.log(companiesWithMoreThanOneO);
+  console.log(companiesWithLessThanOneO);
+
+  const sortCompanies = companies.sort();
+  console.log(sortCompanies);
+  const reversedSortCompanies = sortCompanies.reverse();
+  console.log(reversedSortCompanies);
+
+  console.log(sortCompanies.slice(0, 3));
+  console.log(sortCompanies.slice(companiesLen - 3));
+
+  let middleElement = Math.round((companiesLen - 1) / 2);
+
+  console.log(sortCompanies[middleElement]);
+
+  sortCompanies.shift();
+  console.log(sortCompanies);
+  sortCompanies.splice(middleElement, middleElement + 1);
+  console.log(sortCompanies);
+  sortCompanies.pop();
+  console.log(sortCompanies);
+  
+  console.log(`Destruction of ${sortCompanies}`);
+  for(let i  = 0 ; sortCompanies.length ; i++){
+    sortCompanies.pop();
+  }
+  console.log(sortCompanies);
+}
+
+
+q6_23E1();

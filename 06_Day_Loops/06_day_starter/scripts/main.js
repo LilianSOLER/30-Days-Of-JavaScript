@@ -260,22 +260,22 @@ function createSquaresOfCirclesDivs(n) {
 	// Adding the entire table to the body tag
 	document.querySelector("body").appendChild(table);
 
-  // Creating the rows
-  for (let i = 0; i < n; i++) {
-    let row = document.createElement("tr");
-    table.appendChild(row);
+	// Creating the rows
+	for (let i = 0; i < n; i++) {
+		let row = document.createElement("tr");
+		table.appendChild(row);
 
-    // Creating the columns
-    for (let j = 0; j < n; j++) {
-      let column = document.createElement("td");
-      row.appendChild(column);
+		// Creating the columns
+		for (let j = 0; j < n; j++) {
+			let column = document.createElement("td");
+			row.appendChild(column);
 
-      // Creating the circles
-      let circle = document.createElement("div");
-      circle.className = "circle";
-      column.appendChild(circle);
-    }
-  }
+			// Creating the circles
+			let circle = document.createElement("div");
+			circle.className = "circle";
+			column.appendChild(circle);
+		}
+	}
 }
 
 function q3E2() {
@@ -287,13 +287,151 @@ function q3E2() {
 	}
 	console.log(`rgb(${randomRGB.join(", ")})`);
 	let cerlces = document.querySelectorAll(".circle");
-  console.log(cerlces);
+	console.log(cerlces);
 	cerlces.forEach((cercle) => {
-    cercle.style = "height: 100px; width: 100px;border: 5px solid rgba(0, 0, 0, 1);border-radius: 50%;";
+		cercle.style =
+			"height: 100px; width: 100px;border: 5px solid rgba(0, 0, 0, 1);border-radius: 50%;";
 		cercle.style.backgroundColor = `rgb(${randomRGB.join(", ")})`;
 	});
 }
 
-window.onload = createSquaresOfCirclesDivs(10);
-setInterval(q3E2, 50);
-q3E2();
+// window.onload = createSquaresOfCirclesDivs(10);
+// setInterval(q3E2, 50);
+// q3E2();
+
+function q4_10E2() {
+	const newCountries = [];
+	const countriesInfo = [];
+	const countriesLength = [];
+	const landCountries = [];
+	const notLandCountries = [];
+	const iaCountries = [];
+	const notIaCountries = [];
+	const fiveCharCountries = [];
+
+	let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	let maxLength = 0;
+
+	let i = 0;
+
+	countries.forEach((country) => {
+		if (!newCountries.join("").includes(country[0])) {
+			if (country[0] == alphabet[i]) {
+				if (country.includes("land")) {
+					landCountries.push(country);
+				} else {
+					notLandCountries.push(country);
+				}
+
+				if (country.includes("ia")) {
+					iaCountries.push(country);
+				} else {
+					notIaCountries.push(country);
+				}
+
+				newCountries.push(country);
+				let abrvCountry = country.slice(0, 3).toUpperCase();
+				let countryLength = country.length;
+				countriesInfo.push([country, abrvCountry, countryLength]);
+				countriesLength.push(countryLength);
+
+				if (countryLength > maxLength) {
+					maxLength = i;
+				}
+				if (countryLength == 5) {
+					fiveCharCountries.push(country);
+				}
+
+				i++;
+			}
+		}
+	});
+
+	console.log(newCountries);
+	console.log(countriesInfo);
+	console.log(countriesLength);
+	console.log(landCountries);
+	console.log(notLandCountries);
+	console.log(iaCountries);
+	console.log(notIaCountries);
+	console.log(`Max length: ${newCountries[maxLength]}`);
+	console.log(fiveCharCountries);
+}
+
+// q4_10E2();
+
+function q11_14E2() {
+	const webTechs = [
+		"HTML",
+		"CSS",
+		"JavaScript",
+		"React",
+		"Node",
+		"Express",
+		"MongoDB",
+		"SQL",
+		"Python",
+		"Ruby",
+	];
+	const webTechsLength = webTechs.length;
+	console.log(webTechs);
+	console.log(webTechsLength);
+
+	let maxLength = 0;
+	let maxLengthIndex = 0;
+
+	webTechs.forEach((webTech, index) => {
+		let webTechLength = webTech.length;
+		if (webTechLength > maxLength) {
+			maxLengthIndex = index;
+			maxLength = webTechLength;
+		}
+		webTechs[index] = [webTech, webTechLength];
+	});
+
+	console.log(webTechs);
+	console.log(webTechsLength);
+
+	console.log(`Longest WebTechs name ${webTechs[maxLengthIndex][0]}`);
+
+	const MernStack = ["MongoDB", "Express", "React", "Node"];
+	console.log(`MERN stack is composed of : ${MernStack.join(", ")}`);
+
+	for (let i = 0; i < webTechsLength; i++) {
+		console.log(webTechs[i][0]);
+	}
+}
+
+// q11_14E2();
+
+function q15E2() {
+	const fruits = ["banana", "orange", "mango", "lemon"];
+	const fruitsLength = fruits.length;
+
+	const reversedFruits = Array(fruitsLength).fill(-1);
+
+	fruits.forEach((fruit, index) => {
+		reversedFruits[fruitsLength - 1 - index] = fruit;
+	});
+
+	console.log(fruits);
+	console.log(reversedFruits);
+}
+
+// q15E2();
+
+function q16E2() {
+	const fullStack = [
+		["HTML", "CSS", "JS", "React"],
+		["Node", "Express", "MongoDB"],
+	];
+
+	fullStack.forEach((stack) => {
+		stack.forEach((tech) => {
+			console.log(tech);
+		});
+	});
+}
+
+q16E2();

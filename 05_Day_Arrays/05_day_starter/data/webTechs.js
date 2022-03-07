@@ -1,0 +1,1 @@
+const webTechs = ["HTML", "CSS", "JavaScript", "Node", "React", "MongoDB", "Express", "Handlebars", "Python", "Django"];

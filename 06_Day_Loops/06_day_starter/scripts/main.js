@@ -164,43 +164,136 @@ function q7_12E1() {
 	}
 	console.log(primeNumbers);
 
-  let sumEven = 0;
-  let sumOdd = 0;
-  evenNumbers.forEach((number) => {
-    sumEven += number;
-  });
-  oddNumbers.forEach((number) => {
-    sumOdd += number;
-  });
-  console.log(`Sum of even numbers: ${sumEven}`);
-  console.log(`Sum of odd numbers: ${sumOdd}`);
-  console.log(`Sum of all numbers: ${sumEven + sumOdd}`);
-  console.log([sumEven,sumOdd]);
+	let sumEven = 0;
+	let sumOdd = 0;
+	evenNumbers.forEach((number) => {
+		sumEven += number;
+	});
+	oddNumbers.forEach((number) => {
+		sumOdd += number;
+	});
+	console.log(`Sum of even numbers: ${sumEven}`);
+	console.log(`Sum of odd numbers: ${sumOdd}`);
+	console.log(`Sum of all numbers: ${sumEven + sumOdd}`);
+	console.log([sumEven, sumOdd]);
 }
 
 // q7_12E1();
 
-function q13_15E1(){
-  randomNumbers = [];
-  for(let i = 0; i < 5; i++){
-    randomNumber = Math.floor(Math.random() * 100);
-    while(randomNumbers.includes(randomNumber) == true){
-      randomNumber = Math.floor(Math.random() * 100);
-    }
-    randomNumbers.push(randomNumber);
-  }
-  console.log(randomNumbers);
+function q13_15E1() {
+	randomNumbers = [];
+	for (let i = 0; i < 5; i++) {
+		randomNumber = Math.floor(Math.random() * 100);
+		while (randomNumbers.includes(randomNumber) == true) {
+			randomNumber = Math.floor(Math.random() * 100);
+		}
+		randomNumbers.push(randomNumber);
+	}
+	console.log(randomNumbers);
 
-  randomCharacters = [];
-  let unicodeRange = 917631;
-  for(let i = 0; i < 5; i++){
-    randomCharacter = String.fromCharCode(Math.floor(Math.random() * unicodeRange));
-    while(randomCharacters.includes(randomCharacter) == true){
-      randomCharacter = String.fromCharCode(Math.floor(Math.random() * unicodeRange));
-    }
-    randomCharacters.push(randomCharacter);
-  }
-  console.log(randomCharacters);
+	randomCharacters = [];
+	let unicodeRange = 917631;
+	for (let i = 0; i < 5; i++) {
+		randomCharacter = String.fromCharCode(
+			Math.floor(Math.random() * unicodeRange)
+		);
+		while (randomCharacters.includes(randomCharacter) == true) {
+			randomCharacter = String.fromCharCode(
+				Math.floor(Math.random() * unicodeRange)
+			);
+		}
+		randomCharacters.push(randomCharacter);
+	}
+	console.log(randomCharacters);
 }
 
-q13_15E1();
+// q13_15E1();
+
+function q1_2E2() {
+	randomCharacters = [];
+	let unicodeRange = 917631;
+	let n = 5;
+	for (let i = 0; i < n; i++) {
+		randomCharacter = String.fromCharCode(
+			Math.floor(Math.random() * unicodeRange)
+		);
+		while (randomCharacters.includes(randomCharacter) == true) {
+			randomCharacter = String.fromCharCode(
+				Math.floor(Math.random() * unicodeRange)
+			);
+		}
+		randomCharacters.push(randomCharacter);
+	}
+	console.log(randomCharacters);
+
+	let randomNumber = 0;
+	let beggingLetters = 97;
+	let endLetters = 122;
+	let rangeLetters = endLetters - beggingLetters;
+	let randomHex = ["#"];
+	for (let i = 0; i < n; i++) {
+		randomNumber = Math.floor(Math.random() * 100);
+		while (randomHex.includes(randomNumber) == true) {
+			randomNumber = Math.floor(Math.random() * 100);
+		}
+
+		randomCharacter = String.fromCharCode(
+			Math.floor(Math.random() * rangeLetters + beggingLetters)
+		);
+		while (randomHex.includes(randomCharacter) == true) {
+			randomCharacter = String.fromCharCode(
+				Math.floor(Math.random() * rangeLetters + beggingLetters)
+			);
+		}
+
+		let randomChoiceArray = [randomNumber, randomCharacter];
+		let randomChoice = Math.floor(Math.random() * 2);
+		randomHex.push(randomChoiceArray[randomChoice]);
+	}
+	console.log(randomHex.join(""));
+}
+
+// q1_2E2();
+
+function createSquaresOfCirclesDivs(n) {
+	let table = document.createElement("table");
+	// Adding the entire table to the body tag
+	document.querySelector("body").appendChild(table);
+
+  // Creating the rows
+  for (let i = 0; i < n; i++) {
+    let row = document.createElement("tr");
+    table.appendChild(row);
+
+    // Creating the columns
+    for (let j = 0; j < n; j++) {
+      let column = document.createElement("td");
+      row.appendChild(column);
+
+      // Creating the circles
+      let circle = document.createElement("div");
+      circle.className = "circle";
+      column.appendChild(circle);
+    }
+  }
+}
+
+function q3E2() {
+	let randomRGB = [];
+	let randomNumber = 0;
+	for (let i = 0; i < 3; i++) {
+		randomNumber = Math.floor(Math.random() * 256);
+		randomRGB.push(randomNumber);
+	}
+	console.log(`rgb(${randomRGB.join(", ")})`);
+	let cerlces = document.querySelectorAll(".circle");
+  console.log(cerlces);
+	cerlces.forEach((cercle) => {
+    cercle.style = "height: 100px; width: 100px;border: 5px solid rgba(0, 0, 0, 1);border-radius: 50%;";
+		cercle.style.backgroundColor = `rgb(${randomRGB.join(", ")})`;
+	});
+}
+
+window.onload = createSquaresOfCirclesDivs(10);
+setInterval(q3E2, 50);
+q3E2();

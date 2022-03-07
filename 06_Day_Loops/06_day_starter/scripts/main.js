@@ -434,4 +434,59 @@ function q16E2() {
 	});
 }
 
-q16E2();
+// q16E2();
+
+function copyArray(arr) {
+	const arrCopy = [];
+	arr.forEach((elm) => {
+		arrCopy.push(elm);
+	});
+	return arrCopy;
+}
+
+function E3() {
+	const copyCountries = copyArray(countries).reverse();
+	console.log(copyCountries);
+
+	const sortedCountries = copyArray(copyCountries);
+	sortedCountries.sort();
+	console.log(copyCountries);
+	console.log(sortedCountries);
+
+	const fourCharCountries = [];
+	const landCountries = [];
+	const fewWordCountries = [];
+	let max = [0, 0];
+
+	sortedCountries.forEach((country, index) => {
+		if (country.includes("land")) {
+			landCountries.push(country);
+		}
+
+		let countryLength = country.length;
+
+		if (countryLength > max[1]) {
+			max = [countryLength, index];
+		}
+
+		if (countryLength == 4) {
+			fourCharCountries.push(country);
+		}
+
+		if (country.split(" ").length >= 2) {
+			fewWordCountries.push(country);
+		}
+	});
+
+  console.log(fourCharCountries);
+  console.log(landCountries);
+  console.log(fewWordCountries);
+
+  const reverseCapitalizedCountries = copyArray(copyCountries);
+  reverseCapitalizedCountries.forEach((country, index) => {
+    reverseCapitalizedCountries[index] = country.toUpperCase();
+  })
+  console.log(reverseCapitalizedCountries);
+}
+
+E3();

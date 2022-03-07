@@ -373,4 +373,57 @@ function q6E2() {
 	console.log(fullStack);
 }
 
-q6E2();
+// q6E2();
+
+function q1E3(){
+	const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+	const agesLen = ages.length;
+	console.log(ages);
+	console.log(agesLen);
+
+	ages.sort();
+	console.log(ages);
+	let maxAge = ages[agesLen - 1];
+	let minAge = ages[0];
+	console.log(`Min : ${maxAge} \nMax : ${minAge}`);
+
+	let averageAge = 0;
+	ages.forEach((age) => {
+		averageAge += age;
+	});
+	averageAge /= agesLen;
+	console.log(`Average age : ${averageAge}`);
+	console.log(`Median age : ${ages[Math.round((agesLen - 1) / 2)]}`);
+	console.log(`Range : ${maxAge - minAge}`);
+	console.log(`Min - Moy : ${Math.abs(Math.round((minAge - averageAge) * 100) / 100)}`);
+	console.log(`Max - Moy : ${Math.round((maxAge - averageAge)* 100) / 100}`);
+}
+
+// q1E3();
+
+function q2_3E3(){
+	let countriesLen = countries.length;
+	let countriesMedianIndex = Math.round((countriesLen - 1) / 2);
+	let countriesMedian = countries[countriesMedianIndex];
+	console.log(countries);
+	console.log(countriesLen);
+	console.log(countriesMedian);
+
+	let firstTenCountries = countries.slice(0, 10);
+	console.log(firstTenCountries);
+
+	if(countriesLen % 2 === 0){
+		let firstPart = countries.slice(0, countriesMedianIndex);
+		let secondPart = countries.slice(countriesMedianIndex, countriesLen);
+		console.log(firstPart);
+		console.log(secondPart);
+	} else{
+		let firstPart = countries.slice(0, countriesMedianIndex + 1);
+		let secondPart = countries.slice(countriesMedianIndex + 1, countriesLen);
+		console.log(firstPart);
+		console.log(secondPart);
+	}
+}
+
+q2_3E3();
+

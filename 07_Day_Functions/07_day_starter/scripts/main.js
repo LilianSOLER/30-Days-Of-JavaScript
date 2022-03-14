@@ -371,22 +371,24 @@ const randomHexColor = () => {
 };
 
 const randomHexColorN = (n) => {
-  for (let i = 0; i < n; i++) {
-    console.log(randomHexColor());
-  }
+	for (let i = 0; i < n; i++) {
+		console.log(randomHexColor());
+	}
 };
 
 // randomHexColorN(10);
 
-const userIdGenerator = () => {
+const userIdGenerator = (n = 7) => {
 	let id = [];
-	for (let i = 0; i < 7; i++) {
+	for (let i = 0; i < n; i++) {
 		let beggingLetters = 97;
 		let endLetters = 122;
 		let rangeLetters = endLetters - beggingLetters;
 
 		let randomNum = Math.floor(Math.random() * 10);
-		let randomLetter =  String.fromCharCode(Math.floor(Math.random() * rangeLetters + beggingLetters));
+		let randomLetter = String.fromCharCode(
+			Math.floor(Math.random() * rangeLetters + beggingLetters)
+		);
 		let randomChar = Math.floor(Math.random() * 3);
 		switch (randomChar) {
 			case 0:
@@ -404,9 +406,242 @@ const userIdGenerator = () => {
 };
 
 const userIdGeneratorN = (n) => {
-  for (let i = 0; i < n; i++) {
-    console.log(userIdGenerator());
-  }
+	for (let i = 0; i < n; i++) {
+		console.log(userIdGenerator());
+	}
 };
 
 // userIdGeneratorN(10);
+
+const userIdGeneratedByUser = () => {
+	const ids = [];
+	let nbrUsers = parseInt(prompt("How many user ids do you want to generate?"));
+	let nbrChar = parseInt(
+		prompt("How many characters do you want in each user id?")
+	);
+	for (let i = 0; i < nbrUsers; i++) {
+		ids.push(userIdGenerator(nbrChar));
+	}
+	return ids;
+};
+
+// console.log(userIdGeneratedByUser());
+
+const RgbColorGenerator = () => {
+	let randomRGB = [];
+	let randomNumber = 0;
+	for (let i = 0; i < 3; i++) {
+		randomNumber = Math.floor(Math.random() * 256);
+		randomRGB.push(randomNumber);
+	}
+	return randomRGB;
+};
+
+const RgbColorGeneratorN = (n) => {
+	for (let i = 0; i < n; i++) {
+		console.log(RgbColorGenerator());
+	}
+};
+// RgbColorGeneratorN(10);
+
+const arrayOfRgbColors = (n) => {
+	let arr = [];
+	for (let i = 0; i < n; i++) {
+		arr.push(RgbColorGenerator());
+	}
+	return arr;
+};
+
+// console.log(arrayOfRgbColors(10));
+
+const arrayOfHexaColors = (n) => {
+	let arr = [];
+	for (let i = 0; i < n; i++) {
+		arr.push(randomHexColor());
+	}
+	return arr;
+};
+
+// console.log(arrayOfHexaColors(10));
+
+const hexToRgb = (hex) => {
+	let rgb = [];
+	for (let i = 1; i < hex.length; i += 2) {
+		rgb.push(parseInt(hex.slice(i, i + 2), 16));
+	}
+	return `rgb(${rgb.join(", ")})`;
+};
+
+const arrayHexToRgb = (arr) => {
+	let newArr = [];
+	for (let i = 0; i < arr.length; i++) {
+		newArr.push(hexToRgb(arr[i]));
+	}
+	return newArr;
+};
+
+// console.log(arrayHexToRgb(arrayOfHexaColors(10)));
+
+const componentToHex = (c) =>
+	c.toString(16).length == 1 ? "0" + c.toString(16) : c.toString(16);
+const RgbToHex = (rgb) =>
+	"#" +
+	componentToHex(rgb[0]) +
+	componentToHex(rgb[1]) +
+	componentToHex(rgb[2]);
+
+const arrayRgbToHex = (arr) => {
+	let newArr = [];
+	for (let i = 0; i < arr.length; i++) {
+		newArr.push(RgbToHex(arr[i]));
+	}
+	return newArr;
+};
+
+// console.log(arrayRgbToHex(arrayOfRgbColors(10)));
+
+const generateRandomColor = (mode, num) => {
+	if (mode === "rgb") {
+		console.log(arrayHexToRgb(arrayOfHexaColors(num)));
+	} else if (mode === "hex") {
+		console.log(arrayRgbToHex(arrayOfRgbColors(num)));
+	} else {
+		console.log("Error");
+	}
+};
+
+// generateRandomColor("hex", 10);
+
+const shuffleArray = (arr) => {
+	for (let i = arr.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		[arr[i], arr[j]] = [arr[j], arr[i]];
+	}
+	return arr;
+};
+
+const testShuffleArray = () => {
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	console.log(arr);
+	console.log(shuffleArray(arr));
+};
+
+// testShuffleArray();
+
+const factorial = (n) => {
+	if (n === 0) {
+		return 1;
+	} else {
+		return n * factorial(n - 1);
+	}
+};
+
+// console.log(factorial(100));
+
+const isEmpty = (obj) => {
+	for (let key in obj) {
+		return false;
+	}
+	return true;
+};
+
+const sumArguments = (...args) => {
+	let sum = 0;
+	for (let i = 0; i < args.length; i++) {
+		sum += args[i];
+	}
+	return sum;
+};
+
+// console.log(sumArguments(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+const arraySum = (arr) => {
+	let sum = 0;
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i];
+	}
+	return sum;
+};
+
+// console.log(arraySum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+const arrayAverage = (arr) => {
+	return arraySum(arr) / arr.length;
+};
+
+// console.log(arrayAverage([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+const modifyArray = (arr) => {
+	if (arr.length < 5) {
+		console.log("Array is too short");
+	} else {
+		arr[5] = "five";
+    return arr;
+	}
+};
+
+// console.log(modifyArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+const isPrime = (n) => {
+  if (n === 1) {
+    return false;
+  } else if (n === 2) {
+    return true;
+  } else {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+
+const arrayIsPrime = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push([isPrime(arr[i]), arr[i]]);
+  }
+  return newArr;
+}
+
+// console.log(arrayIsPrime([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+const arrayItemUniq = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!newArr.includes(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+// console.log(arrayItemUniq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+const arrayTypeUniq = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!newArr.includes(typeof arr[i])) {
+      newArr.push(typeof arr[i]);
+    }
+  }
+  return newArr.length === 1 ? true : false;
+}
+
+// console.log(arrayTypeUniq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]));
+// console.log(arrayTypeUniq([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+const isValidVariable = (str) => {
+	let regexAlphaNum = /^[A-z0-9$_]+$/g;
+	return regexAlphaNum.test(str);
+}
+
+const areValidVariable = (arrStr) => {
+	arrStr.forEach((str) => {
+		console.log(`${str} : ${isValidVariable(str)}`);
+	});
+}
+
+areValidVariable([userIdGenerator(10), "$" + userIdGenerator(10), "_" + userIdGenerator(10), "_" + userIdGenerator(10) + "$", "_" + userIdGenerator(10) + "&"]);
+

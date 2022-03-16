@@ -41,4 +41,31 @@ const someExamples = () => {
 	console.log(person.getPersonInfo());
 };
 
-someExamples();
+// someExamples();
+
+const e1 = () => {
+	const dog = {};
+	console.log(dog);
+
+	dog.name = "Nom";
+	dog.length = "75";
+	dog.color = "white";
+	dog.age = "7";
+	dog.bark = function () {
+		console.log("wouf wouf");
+	};
+
+	let dogKeys = Object.keys(dog);
+	dogKeys.forEach((key) => {
+		console.log(dog[key]);
+	});
+	dog.bark();
+
+	dog.breed = "race";
+	dog.getDogInfo = function () {
+		console.log(`${this.name}, ${this.length} cm, ${this.age} years old`);
+	};
+	dog.getDogInfo();
+};
+
+e1();
